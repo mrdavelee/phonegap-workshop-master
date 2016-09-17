@@ -3,6 +3,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
     this.initializeDatabase = function(successCallback, errorCallback) {
         var self = this;
         this.db = window.openDatabase("EmployeeDB", "1.0", "Employee Demo DB", 200000);
+        debugger;
         this.db.transaction(
                 function(tx) {
                     self.createTable(tx);
@@ -20,7 +21,7 @@ var WebSqlStore = function(successCallback, errorCallback) {
     }
 
     this.createTable = function(tx) {
-        tx.executeSql('DROP TABLE IF EXISTS employee');
+        // tx.executeSql('DROP TABLE IF EXISTS employee');
         var sql = "CREATE TABLE IF NOT EXISTS employee ( " +
             "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
             "firstName VARCHAR(50), " +
